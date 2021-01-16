@@ -1,16 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
-int regex_func (char regex[100],char input[100]){ //make regex function
+int regex_func(char regex[100],char input[100]);
+
+int main()
+{
+
     char regex[100];
     char input[100];
+    scanf("%s",regex);
+    scanf("%s", input);
+
+    printf("%s\n",regex);
+    printf("%s\n", input);
+
+    regex_func(regex, input);
+
+    return 0;
+}
+
+int regex_func(char regex[100],char input[100]){ //make regex function
+
     int num = 0; //variable for counting the length of input[100].
 
-    for (int i = 0; i < 101; i++){
-        if (input[num] == "\0"){
+    for (int i = 0; i < 100; i++){
+        if (input[i] == "\0"){
             num = i;
             break;
         }
-    } // Find the null in array using 'for'.
+    } // Find the null in array using 'for loop'.
     int len_input = num; // length of input equals to variable 'num'.
 
     for (int num1 = 0; num1+len_input < 100;num++){ //Find same pattern of input in regex using 'for loop'.
@@ -32,18 +49,5 @@ int regex_func (char regex[100],char input[100]){ //make regex function
     }
 
 
-
-}
-
-
-int main()
-{
-
-    char regex[100];
-    char input[100];
-    scanf("%s",regex);
-    scanf("%s", input);
-
-    regex_func(regex, input);
-    return 0;
+return 0;
 }
